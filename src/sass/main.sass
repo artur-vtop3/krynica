@@ -1,0 +1,554 @@
+@import url("./font.css")
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap')
+
+@tailwind base
+@tailwind components
+@tailwind utilities
+
+@layer base
+  img
+    @apply object-contain block w-full h-full
+  body
+    @apply text-kgray bg-bg bg-kbg bg-top bg-no-repeat bg-contain text-k24 font-bs
+    .leaf1
+      content: ''
+      @apply bg-lleaf absolute w-[350px] h-[350px] bg-no-repeat bg-contain top-24 left-0
+    .leaf2
+      content: ''
+      @apply bg-rleaf absolute w-[280px] h-[350px] bg-no-repeat bg-contain top-[500px] right-0
+@layer components
+  .modal
+    width: 100vw
+    height: 100vh
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 999
+    background: #000000e3
+    display: flex
+    align-items: center
+    justify-content: center
+    &-wrap
+      width: 100%
+      height: 100%
+      max-width: 570px
+      max-height: 300px
+      @apply bg-bg bg-kbg flex flex-col items-center justify-between px-[40px] pb-4 pt-4 font-at border-[3px] border-kgold rounded-lg mx-8
+    &-logo
+      width: 35%
+    &-title
+      font-size: 24px
+      font-weight: 700
+      text-align: center
+      max-width: 320px
+    &-text
+      text-align: center
+    &-buttons
+      @apply flex
+      button
+        @apply px-12 py-2 mx-3 border-[3px] border-kpink hover:bg-kpink hover:text-white
+  .main
+    @apply overflow-x-hidden
+  .hero
+    display: grid
+    grid-template-areas: "a bottle b b" "sladek bottle sort lezak" "sladek bottle pit lager" "sladek bottle ingred ingred" "c bottle d d"
+    grid-template-columns: 2fr 2fr 1fr 1fr
+    grid-template-rows: 25fr 12fr 23fr 8fr 13fr
+    height: 850px
+    position: relative
+    width: 100%
+    grid-gap: 10px
+    margin-top: -40px
+  .sladek
+    grid-area: sladek
+    @apply flex flex-col gap-4 relative
+    &::after
+      content: ''
+      @apply absolute bg-no-repeat bg-contain bg-sladekbg w-[880px] h-[570px] -z-10 -left-[200px] -top-[100px]
+    &-row
+      @apply flex items-center text-center
+      span
+        @apply text-accent text-k32
+      strong
+        @apply text-accent font-normal
+      img
+        @apply w-[230px] h-auto transition-all duration-700 hover:-rotate-12 hover:scale-105
+      &:nth-child(2)
+        margin-right: 10px
+
+  .bottle
+    grid-area: bottle
+    @apply w-full h-auto relative
+    img
+      @apply hover:-rotate-12 hover:scale-105  transition-all duration-700
+    &::before
+      content: ' в лучших традициях пивоварения '
+      background-size: 80px 100px
+      @apply absolute w-[200px] text-k36 text-center top-16 -left-[120px] pb-[100px] bg-arrowbl bg-right-bottom bg-no-repeat leading-10
+    &::after
+      content: ' пиво чешского типа '
+      background-size: 80px 100px
+      @apply absolute w-[200px] text-k36 text-center top-20 -right-[120px] pb-[100px] bg-arrowbr bg-left-bottom bg-no-repeat leading-8
+
+  .sort
+    grid-area: sort
+    @apply flex justify-end items-end text-center relative
+    p
+      @apply absolute -right-16 w-[200px]
+
+  .lezak
+    grid-area: lezak
+    @apply  flex items-center justify-end gap-4 relative
+    &::before
+      content: ''
+      @apply absolute bg-arrowlt bg-contain bg-no-repeat w-[3vw] h-[3vw] top-0 left-12
+    &::after
+      content: ''
+      @apply absolute bg-arrowlb bg-contain bg-no-repeat w-[3vw] h-[3vw] -bottom-4 right-24
+
+    img
+      width: 3vw
+      height: 4vw
+      @apply transition-all duration-700 hover:-translate-y-3 hover:scale-105
+    span
+      @apply text-k32 text-accent
+  .pit
+    grid-area: pit
+    @apply w-[240px] text-center leading-8 relative
+    span
+      @apply text-k32 text-accent
+    &::before
+      content: ''
+      @apply absolute w-[800px] h-[540px] bg-lezakbg bg-contain bg-no-repeat -top-[160px] -left-24 -z-10
+  .lager
+    grid-area: lager
+    @apply text-center leading-8 -mr-4 ml-4
+  .ingred
+    grid-area: ingred
+    @apply -mt-[120px] text-center
+    p
+      @apply text-accent
+    &-inner
+      @apply flex justify-center gap-8
+      p
+        @apply text-kgray text-k20
+        &:nth-child(1)
+          @apply w-[110px] relative pt-[90px] transition-all duration-700  hover:scale-110
+          &::before
+            content: ''
+            @apply absolute top-0 right-0 left-0 bottom-0 bg-barrel bg-top bg-contain bg-no-repeat
+        &:nth-child(3)
+          @apply w-[135px] relative pt-[90px] transition-all duration-700  hover:scale-110
+          &::before
+            content: ''
+            @apply absolute top-4 right-8 left-6 bottom-0 bg-hop bg-top bg-contain bg-no-repeat
+        &:nth-child(2)
+          @apply w-[110px] relative pb-[40px] text-right mt-4 transition-all duration-700  hover:scale-110
+          &::before
+            content: ''
+            @apply absolute top-0 right-0 left-0 bottom-0 bg-ear bg-bottom bg-contain bg-no-repeat
+  .header
+    max-width: 1200px
+    @apply px-[15px] mx-auto flex justify-between items-center py-4
+    &-logo
+      max-height: 100px
+      width: auto
+    &-contacts
+      @apply flex gap-6
+    &-link
+      height: 60px
+      @apply flex items-center gap-[10px]
+
+      &:hover
+        p
+          @apply text-kyellow
+      p
+        @apply shrink-0 flex text-k28 font-at text-accent
+      img
+        @apply w-8
+  .hero
+    max-width: 1450px
+    @apply px-[15px] mx-auto
+  .advant
+    max-width: 1280px
+    @apply px-[15px] mx-auto flex justify-between text-center my-8
+    &-info
+      @apply flex px-6 py-6 rounded border-[3px] border-kgold w-[380px] right-0 absolute bottom-0 bg-bg text-left text-base
+      i
+        @apply absolute top-1 right-1 w-6 h-6 bg-close bg-no-repeat bg-contain cursor-pointer
+    &-item
+      @apply w-[230px] relative flex flex-col justify-between gap-6 leading-6 items-center
+      p
+        @apply text-k48 text-center text-accent font-ap
+        span
+          @apply font-bs
+      span
+        @apply w-[180px] leading-6
+      &-info
+        @apply flex items-center justify-center
+        img
+          @apply w-6 h-6 ml-2 cursor-pointer
+      &::before
+        content: ''
+        @apply bg-advantbg absolute -top-20 -bottom-16 -left-10 -right-20 bg-contain bg-no-repeat bg-center -z-10
+  .footer
+    @apply flex relative flex-col items-center font-at py-[80px]
+    &:before
+      content: ''
+      @apply bg-wheat bg-contain bg-no-repeat bg-center w-[380px] h-[450px] absolute left-0 top-0 -z-20
+    &:after
+      content: ''
+      @apply bg-beer bg-contain bg-no-repeat bg-right w-[520px] h-[420px] absolute right-0 top-4 -z-20
+    &-wrap
+      @apply flex w-[860px] relative justify-center
+    &-wrap2
+        @apply justify-start w-full ml-[40px]
+        ul
+          @apply gap-0 text-[12px] opacity-75 pt-[20px]
+    &-list
+      @apply flex flex-col w-[380px] text-k28 gap-8
+
+    &-item
+      @apply flex items-center gap-4
+
+      a
+        @apply flex items-center gap-2 hover:text-accent
+        img
+          @apply w-8 h-8
+    &-banner
+      @apply w-full justify-center bg-banner h-[200px] flex items-center bg-cover bg-center bg-no-repeat text-k64 font-bs mt-[80px]
+    &-link
+      @apply -mb-[50px] mt-[40px] text-k20 ml-auto mr-[20px]
+@media screen and (max-width: 1850px)
+  body
+    .leaf2
+      @apply w-[15vw] h-[20vw] top-[80px]
+    .leaf1
+      @apply w-[15vw] h-[20vw] top-[100px]
+
+@media screen and (max-width: 1460px)
+  .advant
+    &-item
+      &-info
+        @apply justify-center
+        img
+          @apply w-4 h-4
+  body
+    @apply text-base
+  .hero
+    height: 650px
+  .sladek
+    &-row
+      span
+        @apply text-k20
+      img
+        width: 15vw
+  .lezak
+    &:before
+      top: 2vw
+      right: 9vw
+      left: auto
+    &:after
+      bottom: -4px
+      right: 6vw
+    span
+      @apply text-k20
+  .sort, .lager
+    line-height: 1.2
+  .pit
+    line-height: 1.2
+    span
+      @apply text-k20
+  .bottle
+    &:before,&:after
+      font-size: 16px
+      width: 130px
+      line-height: 1.2
+    &:after
+      width: 90px
+      background-size: 5vw 8vw
+      padding-bottom: 80px
+      right: 0px
+    &:before
+      width: 90px
+      background-size: 3vw 6vw
+      padding-bottom: 80px
+      // right: -3vw
+      left: 0
+  .ingred
+    p
+      font-size: 20px
+    &-inner
+      p
+        font-size: 16px
+        &:nth-child(1)
+          padding-top: 70px
+          max-width: 90px
+        &:nth-child(2)
+          padding-bottom: 0
+          max-width: 90px
+        &:nth-child(3)
+          padding-top: 60px
+          max-width: 90px
+  .advant
+    &-item
+      gap: 8px
+      p
+        font-size: 26px
+        span
+          font-size: 26px
+  .footer
+    &:before
+      @apply w-[150px] h-[180px] left-[13%] top-[80px]
+    &:after
+      @apply w-[220px] h-[220px] top-12
+    &-list
+      font-size: 16px
+      gap: 15px
+      width: 250px
+    &-item
+      gap: 8px
+      a
+        img
+          width: 24px
+          height: 24px
+    &-banner
+      margin-top: 30px
+      font-size: 34px
+      background-size: auto
+  .header
+    height: 100px
+    &-link
+      img
+        width: 24px
+        height: 24px
+@media screen and (max-width: 1024px)
+  .header
+    &-link
+      p
+        display: none
+    &-contacts
+      gap: 16px
+  .hero
+    grid-template-columns: 2fr 170px 160px 1fr
+    height: 600px
+    grid-template-rows: 25fr 12fr 23fr 8fr 1fr
+  .sladek
+    &-row
+      img
+        @apply w-full max-w-[100px]
+  .bottle
+    &:after
+      right: -50px
+    &:before
+      left: -50px
+      padding-bottom: 50px
+      top: 5rem
+  .sort
+    p
+      right: 0
+      width: auto
+  .lezak
+    img
+      width: 33px
+      height: 55px
+    &:before
+      width: 47px
+      height: 47px
+      left: 0
+      right: auto
+    &:after
+      width: 47px
+      height: 30px
+      right: 30px
+      @apply -rotate-45
+  .lager
+    @apply mx-0 ml-auto
+    p
+      width: 100px
+  .ingred
+    &-inner
+      p
+        line-height: 1
+        &:nth-child(1)
+          width: 95px
+          padding-top: 60px
+          &::before
+            left: 8px
+            right: 8px
+        &:nth-child(2)
+          width: 95px
+          padding-bottom: 30px
+          &::before
+            left: 8px
+            right: 8px
+        &:nth-child(3)
+          width: 95px
+          padding-top: 50px
+          &::before
+            left: 16px
+            right: 16px
+            top: 4px
+  .advant
+
+    &-item
+      width: 130px
+      justify-content: flex-start
+      span
+        width: 100px
+        text-align: center
+  .footer
+    @apply py-[60px]
+    &:after
+      width: 180px
+      height: 240px
+    &-link
+      font-size: 12px
+@media screen and (max-width: 767px)
+  .modal
+    @apply px-2
+  .hero
+    grid-template-areas: " bottle bottle" "ingred ingred" "sladek sladek" "pit pit" "lezak lezak" 'sort lager'
+    grid-template-columns: 1fr 1fr
+    grid-template-rows: auto 120px 300px 50px 100px 60px
+    height: auto
+  body
+    .leaf1
+      top: 200px
+      min-width: 140px
+      min-height: 100px
+    .leaf2
+      min-width: 150px
+      min-height: 100px
+      @apply bg-right
+  .bottle
+    max-width: 320px
+    height: 60vw
+    max-height: 500px
+    min-height: 300px
+    @apply mx-auto
+    &::before
+      left: 0%
+      background-size: 50px 50px
+    &::after
+      background-size: 50px 50px
+      right: 0%
+      padding-bottom: 50px
+      top: 30vw
+  .ingred
+    margin: 0
+    p
+      margin-bottom: 10px
+    &-inner
+      gap: 5px
+      p
+        &:nth-child(1)
+          width: 95px
+          padding-top: 70px
+          &::before
+            left: 8px
+            right: 8px
+        &:nth-child(2)
+          width: 95px
+          padding-bottom: 30px
+          &::before
+            left: 8px
+            right: 8px
+        &:nth-child(3)
+          width: 95px
+          padding-top: 50px
+          &::before
+            left: 16px
+            right: 20px
+            top: 0px
+  .sladek
+    @apply max-w-[400px] mx-auto mt-20
+    &:after
+      left: -40px
+      right: -40px
+      top: -80px
+      bottom: 0
+      background-size: cover
+      height: auto
+      width: 520px
+  .pit
+    @apply flex items-center justify-center gap-2 w-auto
+    &:before
+      left: -120px
+      right: 0
+      top: -20px
+      bottom: 0
+      background-size: cover
+      height: auto
+      width: 100%
+  .lezak
+    justify-content: center
+    width: 220px
+    @apply mx-auto
+    &:before
+      left: 0px
+      right: auto
+      top: auto
+      bottom: 0
+      background-size: cover
+      height: 50px
+      width: 50px
+      @apply -rotate-90 bg-arrowlb -scale-y-100
+    &:after
+      left: auto
+      right: 0
+      top: auto
+      bottom: 0
+      background-size: cover
+      height: 50px
+      width: 50px
+      @apply -rotate-90
+  .lager
+    margin-left: 0
+    p
+      width: auto
+  .sort
+    align-items: flex-start
+    justify-content: center
+    p
+      position: relative
+  .advant
+    @apply flex-wrap gap-6 justify-center
+    &-info
+      @apply w-[260px] left-1/4 right-auto -translate-x-1/2 px-3 py-6
+    &-item
+      &:last-child
+        .advant-info
+          @apply left-1/2 right-auto -translate-x-1/2
+
+  .footer
+    &:before
+      display: none
+    &:after
+      top: auto
+      bottom: 190px
+      width: 160px
+    &-wrap
+      justify-content: flex-start
+      padding-left: 15px
+      gap: 15px
+      flex-wrap: wrap
+      width: auto
+    &-wrap2
+      @apply w-full
+      ul
+        @apply gap-0 text-[10px] leading-[130%]
+    &-list
+      margin-right: 0px
+    &-banner
+      font-size: 24px
+      height: 160px
+      background-size: cover
+      text-align: center
+      padding-left: 10px
+      padding-right: 10px
+@media screen and (max-width: 649px)
+  .footer
+    &:after
+      width: 50vw
+      height: 60vw

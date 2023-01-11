@@ -1,0 +1,108 @@
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title New Project
+    link(rel='stylesheet' href='./assets/css/main.css')
+  body
+    .leaf1
+    .leaf2
+    main.main
+      header.header
+        img.header-logo(src="./assets/img/logo.svg" alt="logo")
+        .header-contacts
+          a.header-link(href="") 
+            img(src="./assets/img/phone.svg" alt="phone")
+            p +375 (17) 299-22-22
+          a.header-link(href="https://www.facebook.com/krinitsa.beer") 
+            img(src="./assets/img/fb.svg" data-img='./assets/img/fb-y.svg' alt="facebook")
+          a.header-link(href="https://www.instagram.com/krinitsabeer/") 
+            img(src="./assets/img/inst.svg" data-img='./assets/img/inst-y.svg' alt="instagram")
+      section.hero
+        .sladek
+          .sladek-row
+            p В Чехии <strong>пивовара</strong> называют <span>sladek</span> от слова <strong>slad</strong>, что в переводе на русский означает <strong>солод.</strong>
+          .sladek-row
+            img(src="./assets/img/sladek.svg" alt="")
+            p Настоящий пивовар в совершенстве владеет искусством создания уникальных рецептов хмельного напитка.
+          .sladek-row
+            p <span>Sladek</span>  – старинная и уважаемая профессия, воплощение мастерства и таланта. 
+        .bottle
+          img(src="./assets/img/bottle.png" alt="")
+        .image
+        .sort 
+          p  Cамый популярный сорт пива в Чехии 
+        .lezak
+          span Lezak 
+          img(src="./assets/img/lezak.svg" alt="")
+        .pit
+          p Важнейшая особенность -  
+          span питкость 
+        .lager
+          p  Cветлый лагер низового брожения 
+        .ingred
+          p Только натуральные ингредиенты:
+          .ingred-inner
+            p чистая вода
+            p ячменный солод
+            p ароматный хмель
+      section.advant
+        .advant-item
+          p 10 <span>%</span>
+          span начальная плотность сусла
+        .advant-item
+          p 4,2 <span>%</span>
+          span содержание алкоголя
+        .advant-item
+          p 1,9 <span>л</span>
+          span объем
+        .advant-item
+          p <span>Svetly Lezak</span>
+          span.advant-item-info сорт пива
+            img(src="./assets/img/info.svg" alt="" data-open='1')
+          .advant-info.hidden(data-info='1') Svetly Lezak «Vesely Sladek» готовится в лучших традициях пивоварения. Варка осуществляется по классической технологии со строгим соблюдением всех этапов производственного процесса. И что немаловажно, главный пивовар вкладывает в напиток частичку своей души - для хорошего настроения! <i></i>
+
+        .advant-item
+          p <span>Pitelnost</span>
+          span.advant-item-info характеристика
+            img(src="./assets/img/info.svg" alt="" data-open='2')
+          .advant-info.hidden(data-info='2') В Чехии есть понятие pitelnost, то есть питкость пива, или привлекательность пития. Это цель, к которой стремится настоящий пивовар.<br> <br>Питкое пиво – значит, сбалансированное по хмелевой горечи, солодовой сладости и телу. Питьевая привлекательность достигается за счет легкотельности. <i></i>
+      footer.footer
+        .footer-wrap
+
+          ul.footer-list
+            li.footer-item 
+              p Мы в соцсетях
+              a(href="https://www.facebook.com/krinitsa.beer")
+                img(src="./assets/img/fb-b.svg" data-img='./assets/img/fb.svg' alt="")
+              a(href="https://www.instagram.com/krinitsabeer/")
+                img(src="./assets/img/inst-b.svg" data-img='./assets/img/inst.svg' alt="")  
+
+            li.footer-item 
+              a(href="") 
+                img(src="./assets/img/mail-b.svg" alt="")
+                p marketing@krinitsa.by
+
+        .footer-banner
+          p Чрезмерное употребление алкоголя вредит здоровью!
+        .footer-wrap.footer-wrap2
+          ul.footer-list
+            li.footer-item
+              p ОAO «Криница»
+            li.footer-item
+              p УНП 100006988
+            li.footer-item
+              p 220070, Республика Беларусь,<br> г. Минск, ул. Радиальная, 52
+        a.footer-link(href="") Сайт разработан ВТОП3
+      .modal.hidden
+        .modal-wrap
+          .modal-logo
+            img(src="./assets/img/logo.svg" alt="")
+          .modal-title.hidden К сожалению, Вы не можете посетить сайт.
+          .modal-text Вам уже исполнилось 18 лет?
+          .modal-buttons
+            button(data-btn='1') Да
+            button(data-btn='2') Нет
+  script(src='./assets/js/script.min.js') 
